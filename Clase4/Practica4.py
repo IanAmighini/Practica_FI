@@ -63,8 +63,10 @@ def se_encuentra(strings, frase):
             return 'No esta en la frase'
 print(se_encuentra(['hola', 'como', 'andan'], 'buenas como andan todos hola'))
 
-#7
-
+#7 (modificar)
+def encontrar(string):
+    return re.search('[a-zA-Z0-9]', string).group()
+print(encontrar('asd09JKJASDKasda'))
 
 #8
 

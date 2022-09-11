@@ -42,11 +42,11 @@ reemplazar('texto1.txt', 'texto2.txt', 'n')
 #6
 def sin_saltos(entrada, salida):
     with open(entrada, 'r') as file, open(salida, 'w') as file2:
-        for char in file:
-            if char == '\n':
+        for letra in file.read():
+            if letra == '\n':
                 pass
             else:
-                file2.write(char)
+                file2.write(letra)
 sin_saltos('texto1.txt', 'texto3.txt')
 
 #7
@@ -73,9 +73,11 @@ def frecuencia(archivo):
     with open(archivo, 'r') as file:
         palabras = file.read()
         lista = palabras.split()
+        dic = {}
         for palabra in lista:
-            int(lista.count(palabra)) / int(len(lista))
-print(frecuencia('ej1mani.txt'))
+            dic[palabra] = int(lista.count(palabra)) / int(len(lista))
+        print(dic)
+frecuencia('ej1mani.txt')
 
 #10
 def unir_txt(carpeta1, nombre):
@@ -86,4 +88,4 @@ def unir_txt(carpeta1, nombre):
         for archivo in textos:
             with open(archivo, 'r') as texto:
                 salida.write(texto.read() + '\n')
-unir_txt('carpeta_prueba/nuevo', 'salida.txt')
+unir_txt('ej10', 'salida.txt')

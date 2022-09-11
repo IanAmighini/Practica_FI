@@ -17,3 +17,5 @@ def dividir(lista1, numero):
         "No es numero"
     
 print(dividir([2,4,6,8], 2))
+
+#3
