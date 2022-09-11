@@ -37,9 +37,17 @@ def reemplazar(entrada, salida, letra):
     with open(entrada, 'r') as file, open(salida, 'w') as file2:
         for line in file:
             file2.write(line.replace(letra, letra + '\n'))
-reemplazar('texto1', 'texto2', 'n')
+reemplazar('texto1.txt', 'texto2.txt', 'n')
 
 #6
+def sin_saltos(entrada, salida):
+    with open(entrada, 'r') as file, open(salida, 'w') as file2:
+        for char in file:
+            if char == '\n':
+                pass
+            else:
+                file2.write(char)
+sin_saltos('texto1.txt', 'texto3.txt')
 
 #7
 def palabra_larga(archivo):
@@ -52,6 +60,22 @@ def palabra_larga(archivo):
             larga = palabra
     print('La palabra mas larga es', larga, 'con', len(larga), 'letras')
 palabra_larga('ej1mani.txt')
+
+#8
+def juntar(archivo1, archivo2, archivo3):
+    with open(archivo1, 'r') as file, open(archivo2, 'r') as file2, open(archivo3, 'w') as file3:
+        file3.write(file.read())
+        file3.write(file2.read())
+juntar('texto1.txt','texto2.txt','texto3.txt')        
+
+#9
+def frecuencia(archivo):
+    with open(archivo, 'r') as file:
+        palabras = file.read()
+        lista = palabras.split()
+        for palabra in lista:
+            int(lista.count(palabra)) / int(len(lista))
+print(frecuencia('ej1mani.txt'))
 
 #10
 def unir_txt(carpeta1, nombre):

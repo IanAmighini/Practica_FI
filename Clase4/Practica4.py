@@ -61,3 +61,30 @@ def se_encuentra(strings, frase):
             return 'Esta en la frase'
         else:
             return 'No esta en la frase'
+print(se_encuentra(['hola', 'como', 'andan'], 'buenas como andan todos hola'))
+
+#7
+
+
+#8
+
+
+#9
+
+
+#10
+
+
+#11
+
+
+#12
+
+
+#13
+
+
+#14
+
+
+#15
