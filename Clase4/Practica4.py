@@ -63,30 +63,67 @@ def se_encuentra(strings, frase):
             return 'No esta en la frase'
 print(se_encuentra(['hola', 'como', 'andan'], 'buenas como andan todos hola'))
 
-#7 (modificar)
+#7
 def encontrar(string):
-    return re.search('[a-zA-Z0-9]', string).group()
-print(encontrar('asd09JKJASDKasda'))
+    patron = '\w+\s+'
+    resultado = re.search(patron, string)
+    print(resultado.group())
+encontrar("buenas noches!!233  asdad asd as dasd")
 
 #8
-
+string = str(input("Inserte un string: "))
+def devolver_num(string):
+    num = re.findall(r'\d+', string)
+    print("Los números de", string,"son:",*num)
+devolver_num(string)
 
 #9
-
+def entre_guiones(string):
+    patron = '[\-][\w]+[\-]'
+    return re.findall(patron, string)
+print(entre_guiones('hola-sadfs- sfd -fsd-'))
 
 #10
-
+def entre_simbolos(string):
+    patron = '[\@|\&][\w]+[\@|\&]'
+    resultado = re.findall(patron, string)
+    for elem in resultado:
+        print(re.search(elem,string).span())
+    print(resultado)
+entre_simbolos('kjh@asdf@jhk&kjbkj&')
 
 #11
-
+def doble_p(lista):
+    for string in lista:
+        patron = '[P][\w]+'
+        resultado = re.findall(patron, string)
+        if len(resultado) == 2:
+            print(*resultado)
+doble_p(["Práctica Python", "Práctica C++", "Práctica Fortran"])
 
 #12
-
+def reemplazo(texto):
+    nuevo_t = re.sub('[\s|\_|\:]','|',texto)
+    print(nuevo_t)
+reemplazo('kjhasd asdj_ ll')
 
 #13
-
+def reemplazo2(texto):
+    nuevo_t = re.sub('[\W]','_',texto)
+    print(nuevo_t)
+reemplazo2('askjdh!.ajk')
 
 #14
-
+def reemplazo3(texto):
+    texto2 = re.sub('[\t|\s]',';',texto)
+    print(texto2)
+reemplazo3('sadf sadf')
 
 #15
+def es_correo(mail):
+    validacion_de_correo = re.search("[a-zA-Z0-9_\.\-]+[@][a-z]+[\.][a-z]{2,}",mail)
+    if validacion_de_correo is not None:
+        print("El e-mail ingresado es válido")
+    else:
+        print("Intente de nuevo")
+es_correo('kjsdhfs@gmail.com')
